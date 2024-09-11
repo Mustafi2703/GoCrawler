@@ -12,27 +12,27 @@ func TestNormalizeURL(t *testing.T) {
 		expected      string
 		errorContains string
 	}{
-		{
+		{ //scheme
 			name:     "remove scheme",
 			inputURL: "https://blog.boot.dev/path",
 			expected: "blog.boot.dev/path",
 		},
-		{
+		{ //remove
 			name:     "remove trailing slash",
 			inputURL: "https://blog.boot.dev/path/",
 			expected: "blog.boot.dev/path",
 		},
-		{
+		{ //lower
 			name:     "lowercase capital letters",
 			inputURL: "https://BLOG.boot.dev/PATH",
 			expected: "blog.boot.dev/path",
 		},
-		{
+		{ // remove scheme
 			name:     "remove scheme and capitals and trailing slash",
 			inputURL: "http://BLOG.boot.dev/path/",
 			expected: "blog.boot.dev/path",
 		},
-		{
+		{ //invalid
 			name:          "handle invalid URL",
 			inputURL:      `:\\invalidURL`,
 			expected:      "",
