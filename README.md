@@ -18,18 +18,18 @@ This web crawler efficiently explores websites by following internal links, mapp
 - Go 1.22.5 or later
 - External packages:
   - `golang.org/x/net/html`: For HTML parsing
-# Download dependencies
+## Download dependencies
 go mod download
 
-# Clone the repository
+## Clone the repository
 git clone https://github.com/Mustafi2703/GoCrawler.git
 
-# Build the project
+## Build the project
 go build
 
 ./GoCrawler <starting-url> <max-depth> <rate-limit>
 
-Example:
+##Example:
 ./GoCrawler https://example.com 3 10
 
 This will:
@@ -38,16 +38,33 @@ Start crawling from https://example.com
 Crawl to a maximum depth of 3 pages from the starting point
 Limit requests to approximately 10 per second
 
-#How it works
+##How it works
 1. The crawler starts at the specified URL
 2. It extracts all internal links from the page
 3. For each new link found, it queues it for crawling if within the depth limit
 4. The process continues concurrently until all reachable pages within the depth limit are crawled
 5. Finally, it generates a report showing how many internal links point to each page
 
-#Project Structure
+##Project Structure
 1. main.go: Entry point and command line interface
 2. crawler.go: Main crawling logic and concurrency handling
 3. parser.go: HTML parsing and link extraction
 4. report.go: Reporting and output formatting
+
+
+## Further Enhancements
+
+- **Robots.txt Support**: Add capability to respect robots.txt rules for ethical crawling
+- **Data Export**: Implement export functionality to save crawl results in JSON, CSV, or database formats
+- **Visualization**: Add graphical representation of the site structure using D3.js or similar libraries
+- **Custom User Agents**: Allow specification of custom User-Agent strings
+- **Proxy Support**: Add ability to route requests through proxies for anonymity or rate-limit bypass
+- **Crawl Patterns**: Implement pattern-based inclusion/exclusion of URLs
+- **Content Analysis**: Add capabilities to analyze page content, extract metadata, or detect specific patterns
+- **Distributed Crawling**: Extend to support distributed crawling across multiple machines
+- **Authentication Support**: Add ability to crawl sites requiring authentication
+- **Resumable Crawls**: Implement functionality to pause and resume crawls
+
+## License
+Personal project for educational purpose.
 
